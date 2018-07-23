@@ -4,14 +4,10 @@ open FILE, "< /Pfad/zur/Datei.txt" or die $!;
 foreach (<FILE>) {
 	my $line = $_;
 	if ($line =~ /\. ([\w ]+?zwar [\w ]+?, )/) {
-		$zwar = $1;
-		if (length($zwar) > 30) {
-			$zwar_hash{$zwar}++;
-		}
+		$zwar_hash{$1}++ if (length($1) > 30);
 	}
 	if ($line =~ /Aber ([\w ]{50,100}\.)/) {
-		$aber = $1;
-		$aber_hash{$aber}++;
+		$aber_hash{$1}++;
 	}
 }
 for (my $i = 0; $i < 1000; $i++) {
