@@ -1,3 +1,5 @@
+#!/usr/bin/perl -w
+
 open FILE, "< /Pfad/zur/Datei.txt" or die $!;
 foreach (<FILE>) {
 	my $line = $_;
