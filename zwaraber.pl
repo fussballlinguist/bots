@@ -2,16 +2,15 @@
 
 open FILE, "< /Pfad/zur/Datei.txt" or die $!;
 foreach (<FILE>) {
-	my $line = $_;
-	if ($line =~ /\. ([\w ]+?zwar [\w ]+?, )/) {
-		$zwar_hash{$1}++ if (length($1) > 30);
+	if ($_ =~ /\. ([\w ]+?zwar [\w ]+?, )/) {
+		$zwar{$1}++ if (length($1) > 30);
 	}
-	if ($line =~ /Aber ([\w ]{50,100}\.)/) {
-		$aber_hash{$1}++;
+	if ($_ =~ /Aber ([\w ]{50,100}\.)/) {
+		$aber{$1}++;
 	}
 }
 for (my $i = 0; $i < 1000; $i++) {
-	@zwar_keys = keys %zwar_hash;
-	@aber_keys = keys %aber_hash;
+	@zwar_keys = keys %zwar;
+	@aber_keys = keys %aber;
 	print $zwar_keys[int rand(@zwar_keys)] . "aber " . $aber_keys[int rand(@aber_keys)] . "\n";
 }
