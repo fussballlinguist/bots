@@ -1,12 +1,11 @@
 # Bots
 
 Hier dokumentiere ich die Skripte, mit denen ich das Textmaterial meiner Bots generiere:
-[@_zwar_aber_](https://twitter.com/_zwar_aber_)
-tbc.
+[@\_zwar_aber_](https://twitter.com/_zwar_aber_) und [@UndUeberhaupt](https://twitter.com/undueberhaupt).
 
 ## Authors
 
-* **Simon Meier-Vieracker** - [fussballlinguistik.de](http://www.fussballlinguistik.de)
+* Simon Meier-Vieracker - [fussballlinguistik.de](http://www.fussballlinguistik.de) - [@fussballinguist](https://twitter.com/fussballinguist)
 
 ## License
 
