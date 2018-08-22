@@ -1,5 +1,8 @@
 #! /usr/bin/perl -w
 
+# Das Skript generiert eine Tickermeldung und publiziert sie auf Twitter.
+# Alle anzupassenden Zeilen sind mit # markiert.
+
 use strict;
 use warnings;
 use Net::Twitter;
