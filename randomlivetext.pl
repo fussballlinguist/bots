@@ -10,7 +10,7 @@ use Scalar::Util 'blessed';
 use utf8;
 use open ':std', ':encoding(utf8)';
 
-my $fh = "./teams.txt" # Pfad zur Tabelle mit den Teams anpassen!
+my $fh = "./teams.txt" # Pfad zur Tabelle mit den Teams (https://github.com/fussballlinguist/bots/blob/master/teams.txt) anpassen!
 open TEAMS, "< $fh" or die $!;
 my %teams;
 while (my $line = <TEAMS>) {
