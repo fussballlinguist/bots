@@ -65,6 +65,7 @@ while (<TEAMS>) {
 		$keeper =~ s/"//;
 	}
 }
+# Ab hier gebe ich jeweils drei exemplarische Array-Elemente an, die nach Wunsch ergänzt werden können. 
 my @verbs = ("spielt","legt","schlägt");
 my $verb = $verbs[rand @verbs];
 my @balls = ("den Ball","das Ei","die Kugel");
