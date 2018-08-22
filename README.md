@@ -1,7 +1,6 @@
 # Bots
 
-Hier dokumentiere ich die Skripte, mit denen ich das Textmaterial meiner Bots generiere:
-[@\_zwar_aber_](https://twitter.com/_zwar_aber_) und [@UndUeberhaupt](https://twitter.com/undueberhaupt).
+Hier dokumentiere ich die Skripte, mit denen ich das Textmaterial meiner Bots generiere: [@randomlivetext](https://twitter.com/randomlivetext), [@\_zwar_aber_](https://twitter.com/_zwar_aber_) und [@UndUeberhaupt](https://twitter.com/undueberhaupt).
 
 ## Authors
 
