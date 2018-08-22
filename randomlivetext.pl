@@ -1,6 +1,6 @@
 #! /usr/bin/perl -w
 
-# Das Skript generiert eine Tickermeldung und publiziert sie auf Twitter.
+# Das Skript generiert eine zufällige Livetickermeldung und publiziert sie ggf. auf Twitter.
 # Alle anzupassenden Teile sind mit # markiert.
 
 use strict;
@@ -164,7 +164,7 @@ if ($random == 0) {
 $ticker .= " #$home$away";
 print "$ticker\n";
 
-#Keys und Access Tokens der Twitter App definieren!
+# Wenn die Tickermeldung auf Twitter publiziert werden soll, hier Keys und Access Tokens der Twitter App definieren!
 my $consumer_key = "xxxxxxxxxxxxxxxxxxxxxxxxx";
 my $consumer_secret = "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx";
 my $token = "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx";
