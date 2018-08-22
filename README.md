@@ -8,9 +8,7 @@ Das Script generiert zufallsbasierte Livetickermeldungen und publiziert sie auf 
 
 Im Script wird auf eine Kaderliste [teams.txt](https://github.com/fussballlinguist/bots/blob/master/teams.txt) zurückgegriffen, die einer entsprechenden Übersicht auf [weltfussball.de](https://www.weltfussball.de/spieler/bundesliga-2018-2019/) entnommen ist.
 
-Außerdem müssen die Keys und Access Tokens der Twitter App, über die getwittert werden soll, angepasst werden.
-
-Optional können die hier nur exemplarisch angedeuteten Arrays mit den Füllwerten der Satzschablonen erweitert werden.
+Neben dem Pfad zu teams.txt müssen noch die Keys und Access Tokens der Twitter App, über die getwittert werden soll, angepasst werden. Optional können die hier nur exemplarisch angedeuteten Arrays mit den Füllwerten der Satzschablonen erweitert werden.
 
 ## Authors
 
