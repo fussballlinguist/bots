@@ -6,7 +6,8 @@ Hier dokumentiere ich die Skripte, mit denen ich das Textmaterial meiner Bots ge
 
 Das Script generiert zufallsbasierte Livetickermeldungen und publiziert sie auf Twitter.
 
-Im Script wird auf eine Kaderliste teams.txt zurückgegriffen, einer entsprechenden Übersicht auf [weltfussball.de](https://www.weltfussball.de/spieler/bundesliga-2018-2019/) entnommen ist und hier im Repository heruntergeladen werden kann.
+Im Script wird auf eine Kaderliste [teams.txt](https://github.com/fussballlinguist/bots/blob/master/teams.txt) zurückgegriffen, die einer entsprechenden Übersicht auf [weltfussball.de](https://www.weltfussball.de/spieler/bundesliga-2018-2019/) entnommen ist.
+
 Außerdem müssen die Keys und Access Tokens der Twitter App, über die getwittert werden soll, angepasst werden.
 
 Optional können die hier nur exemplarisch angedeuteten Arrays mit den Füllwerten der Satzschablonen erweitert werden.
