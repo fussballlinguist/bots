@@ -10,62 +10,63 @@ use Scalar::Util 'blessed';
 use utf8;
 use open ':std', ':encoding(utf8)';
 
-my $fh = "./teams.txt" # Pfad zur Tabelle mit den Teams (https://github.com/fussballlinguist/bots/blob/master/teams.txt) anpassen!
+# Pfad zur Tabelle mit den Teams (https://github.com/fussballlinguist/bots/blob/master/teams.txt) anpassen:
+my $fh = "./teams.txt" 
+
+# Wenn die Tickermeldung auf Twitter publiziert werden soll, hier Keys und Access Tokens der Twitter App definieren:
+my $consumer_key = "xxxxxxxxxxxxxxxxxxxxxxxxx";
+my $consumer_secret = "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx";
+my $token = "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx";
+my $token_secret = "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx";
+
 open TEAMS, "< $fh" or die $!;
+
 my %teams;
+my $home;
+my $away;
+my $coach;
+my $playername1;
+my $playername2;
+my $keeper;
+my $nickname_home;
+my $nickname_away;
+my $ticker;
+
 while (my $line = <TEAMS>) {
 	$line = substr($line, 1, 3);
 	$teams{$line}++;
 }
-close TEAMS;
-
-my $home;
-my $away;
 do {
 	my @team_keys = keys %teams;
 	$home = $team_keys[int rand(@team_keys)];
 	$away = $team_keys[int rand(@team_keys)];
 } while ($home eq $away);
 
-my $regex1 = "\"$home\"";
-my $regex2 = "\"$away\"";
-
 open TEAMS, "< $fh" or die $!;
-my $nickname_home;
-my $nickname_away;
-my $player1;
-my $player2;
-my $keeper;
-my $coach;
-my $ticker;
 while (<TEAMS>) {
-	if (/$regex1/) {
+	if (/\"$home\"/) {
 		my @team_position = split /\t/, $_;
-		my $playerall = $team_position[3];
-		my @players = split ",", $playerall;
 		$coach = $team_position[1];
 		$coach =~ s/"//g;
+		my @players = split ",", $team_position[3];
 		do {
-			$player1 = $players[rand @players];
-			$player1 =~ s/"//;
-			$player2 = $players[rand @players];
-			$player2 =~ s/"//;
-		} while ($player1 eq $player2);
-		my $nickall = $team_position[4];
-		my @nick = split ",", $nickall;
-		$nickname_home = $nick[rand @nick];
+			$playername1 = $players[rand @players];
+			$playername1 =~ s/"//;
+			$playername2 = $players[rand @players];
+			$playername2 =~ s/"//;
+		} while ($playername1 eq $playername2);
+		my @nicknames = split ",", $team_position[4];
+		$nickname_home = $nicknames[rand @nicknames];
 		$nickname_home =~ s/"//g;
 	}
-	if (/$regex2/) {
+	if (/\"$away\"/) {
 		my @team_position = split /\t/, $_;
-		my $nickall = $team_position[4];
-		my @nick = split ",", $nickall;
-		$nickname_away = $nick[rand @nick];
-		$nickname_away =~ s/"//g;
-		my $keeperall = $team_position[2];
-		my @keepers = split ",", $keeperall;
+		my @keepers = split ",", $team_position[2];
 		$keeper = $keepers[rand @keepers];
 		$keeper =~ s/"//;
+		my @nicknames = split ",", $team_position[4];
+		$nickname_away = $nicknames[rand @nicknames];
+		$nickname_away =~ s/"//g;
 	}
 }
 # Ab hier gebe ich jeweils drei exemplarische Array-Elemente an, die nach Wunsch ergänzt werden können. 
@@ -164,11 +165,6 @@ if ($random == 0) {
 $ticker .= " #$home$away";
 print "$ticker\n";
 
-# Wenn die Tickermeldung auf Twitter publiziert werden soll, hier Keys und Access Tokens der Twitter App definieren!
-my $consumer_key = "xxxxxxxxxxxxxxxxxxxxxxxxx";
-my $consumer_secret = "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx";
-my $token = "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx";
-my $token_secret = "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx";
 my $nt = Net::Twitter->new(
     traits   => [qw/API::RESTv1_1/],
     consumer_key        => $consumer_key,
