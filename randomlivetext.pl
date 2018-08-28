@@ -1,7 +1,7 @@
 #! /usr/bin/perl -w
 
-# Das Skript generiert eine zufällige Livetickermeldung und publiziert sie ggf. auf Twitter.
-# Alle anzupassenden Teile sind mit # markiert.
+# This script generates a live text commentary and publishes it on twitter on request..
+# All parts to be adjusted are marked with #
 
 use strict;
 use warnings;
@@ -10,10 +10,10 @@ use Scalar::Util 'blessed';
 use utf8;
 use open ':std', ':encoding(utf8)';
 
-# Pfad zur Tabelle mit den Teams (https://github.com/fussballlinguist/bots/blob/master/teams.txt) anpassen:
+# Set path to the spreadsheet with the teams (https://github.com/fussballlinguist/bots/blob/master/teams.txt):
 my $fh = "./teams.txt" 
 
-# Wenn die Tickermeldung auf Twitter publiziert werden soll, hier Keys und Access Tokens der Twitter App definieren:
+# If the entry shall be published on twitter, set the keys and access tokens here:
 my $consumer_key = "xxxxxxxxxxxxxxxxxxxxxxxxx";
 my $consumer_secret = "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx";
 my $token = "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx";
@@ -69,7 +69,7 @@ while (<TEAMS>) {
 		$nickname_away =~ s/"//g;
 	}
 }
-# Ab hier gebe ich jeweils drei exemplarische Array-Elemente an, die nach Wunsch ergänzt werden können. 
+# From here on I give three exemplary array elements, which can be added as desired.
 my @verbs = ("spielt","legt","schlägt");
 my $verb = $verbs[rand @verbs];
 my @balls = ("den Ball","das Ei","die Kugel");
