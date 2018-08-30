@@ -1,6 +1,6 @@
 #! /usr/bin/perl -w
 
-# This script generates a live text commentary and publishes it on twitter on request..
+# This script generates a live text commentary and publishes it on twitter on request.
 # All parts to be adjusted are marked with #
 
 use strict;
@@ -25,8 +25,8 @@ my %teams;
 my $home;
 my $away;
 my $coach;
-my $playername1;
-my $playername2;
+my $player1;
+my $player2;
 my $keeper;
 my $nickname_home;
 my $nickname_away;
@@ -50,11 +50,11 @@ while (<TEAMS>) {
 		$coach =~ s/"//g;
 		my @players = split ",", $team_position[3];
 		do {
-			$playername1 = $players[rand @players];
-			$playername1 =~ s/"//;
-			$playername2 = $players[rand @players];
-			$playername2 =~ s/"//;
-		} while ($playername1 eq $playername2);
+			$player1 = $players[rand @players];
+			$player1 =~ s/"//;
+			$player2 = $players[rand @players];
+			$player2 =~ s/"//;
+		} while ($player1 eq $player2);
 		my @nicknames = split ",", $team_position[4];
 		$nickname_home = $nicknames[rand @nicknames];
 		$nickname_home =~ s/"//g;
