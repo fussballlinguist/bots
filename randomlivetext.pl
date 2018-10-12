@@ -33,8 +33,10 @@ my $nickname_away;
 my $ticker;
 
 while (my $line = <TEAMS>) {
-	$line = substr($line, 1, 3);
-	$teams{$line}++;
+	if ($line =~ /^"/) {
+		$line = substr($line, 1, 3);
+		$teams{$line}++;
+	}
 }
 do {
 	my @team_keys = keys %teams;
