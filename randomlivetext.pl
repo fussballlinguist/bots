@@ -1,7 +1,13 @@
 #! /usr/bin/perl -w
 
-# This script generates a live text commentary and publishes it on twitter on request.
-# All parts to be adjusted are marked with #
+########################################################################################
+#                                                                                      #
+#  This script generates a live text commentary and publishes it on twitter on request #
+#  All parts to be adjusted are marked with #                                          #
+#  Autor: Simon Meier-Vieracker, www.fussballlinguistik.de.                            #
+#  Berlin, Oktober 2018                                                                #
+#                                                                                      #
+########################################################################################
 
 use strict;
 use warnings;
