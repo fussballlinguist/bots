@@ -1,0 +1,24 @@
+#!/usr/bin/env python
+
+# retweet bot @twcampus_bot. Made by Simon Meier-Vieracker (@fussballinguist). Ispired by Piotr Krosniak (https://gist.github.com/PiotrKrosniak/)
+
+import tweepy
+
+consumer_key = "xxxxxxxx"
+consumer_secret = "xxxxxxx"
+access_token = "xxxxxxx-xxxxxx"
+access_token_secret = "xxxxxxx"
+
+auth = tweepy.OAuthHandler(consumer_key, consumer_secret)
+auth.set_access_token(access_token, access_token_secret)
+api = tweepy.API(auth)
+
+for tweet in tweepy.Cursor(api.search, q=('#twittercampus -filter:retweets'), lang='de').items(1):
+    try:
+        print('\nTweet by: @' + tweet.user.screen_name)
+        tweet.retweet()
+        print('Retweeted the tweet')
+    except tweepy.TweepError as e:
+        print(e.reason)
+    except StopIteration:
+        break
